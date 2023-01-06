@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import Map from "./components/Map/Map";
+import TebleMap from "./components/Table/Table";
+import React from "react";
+import { Layout, theme } from "antd";
+import { useSelector } from "react-redux";
 
-function App() {
+const { Header, Sider, Content } = Layout;
+
+const App = () => {
+  const request = useSelector((state) => state.request);
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Layout>
+      <Header className="header"></Header>
+      <Layout>
+        <Sider
+          width={600}
+          style={{
+            background: colorBgContainer,
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <TebleMap arrRequest={request.requests} />
+        </Sider>
+        <Layout
+          style={{
+            padding: "0 24px 24px",
+          }}
+        >
+          <Content
+            style={{
+              padding: 24,
+              margin: 0,
+              minHeight: 500,
+              maxHeight: 450,
+              height: 550,
+              background: colorBgContainer,
+            }}
+          >
+            <Map coordinatesRequest={request.coordinatesRequest} />
+          </Content>
+        </Layout>
+      </Layout>
+    </Layout>
   );
-}
+};
 
 export default App;
