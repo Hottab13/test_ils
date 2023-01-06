@@ -5,7 +5,7 @@
 Clone the project repository by running the command below
 
 ```bash
-git clone https://github.com/Hottab13/app_ep_v_0_3.git
+git clone https://github.com/Hottab13/test_ils.git
 ```
 
 After cloning, run:
