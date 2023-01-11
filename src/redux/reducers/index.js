@@ -56,6 +56,7 @@ const toolSlice = createSlice({
   },
   reducers: {
     buferRequest(state, action) {
+      debugger
       for (let i = 0; i < state.requests.length; i++) {
         if (state.requests[i].key === action.payload) {
           state.coordinatesRequest = state.requests[i];

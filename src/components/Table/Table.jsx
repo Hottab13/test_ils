@@ -31,19 +31,17 @@ const columns = [
   },
 ];
 
-const TebleMap = ({ arrRequest, keyBuferRequest }) => {
+const TebleMap = ({ arrRequest }) => {
   const dispatch = useDispatch();
   const rowSelection = {
-    onChange: (selectedRowKeys, selectedRows) => {
-      console.log(selectedRows[0].key);
-      dispatch(buferRequest(selectedRows[0].key));
+    onChange: (selectedRows) => {
+      dispatch(buferRequest(selectedRows[0]));
     },
   };
 
   return (
     <>
       <Divider />
-
       <Table
         rowSelection={{
           type: "radio",

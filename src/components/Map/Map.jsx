@@ -5,8 +5,6 @@ const Map = ({coordinatesRequest}) => {
     <ReactLeafletWaypoints
       center={[50, 50]}
       zoom={11}
-      loading={coordinatesRequest.coordinatesFromLat?false: true}
-      summaryTemplate={"distanceTemplate"}
       lineOptions={[{
         color:255,
         opacity: 1,
